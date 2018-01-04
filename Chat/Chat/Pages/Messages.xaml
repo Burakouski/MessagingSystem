@@ -1,0 +1,124 @@
+﻿<Page x:Class="Chat.Pages.Messages"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="750"
+	Title="Messages">
+    <Page.Resources>
+        <Style x:Key="MyBackGround" TargetType="{x:Type TextBox}">
+            <Setter Property="TextBlock.Background" Value="LightGreen"></Setter>
+            <Setter Property="TextBox.Background" Value="LightGreen"></Setter>
+        </Style>
+    </Page.Resources>
+    <Page.Background>
+        <ImageBrush ImageSource="/Chat;component/Images/1152x720_surface-green-background.jpg" />
+    </Page.Background>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="146"></ColumnDefinition>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="400" />
+            <RowDefinition Height="50" ></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="txtSearch" Grid.Row="0" Grid.Column="0" TextAlignment="Center" FontSize="16" Height="25
+                 " >
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFCAFDBB" Offset="0"/>
+                    <GradientStop Color="#FFB1F99B" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <ListBox x:Name="ListContacts" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" MouseDown="ListContacts_MouseDown" SelectionChanged="ListContacts_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <TextBlock Grid.Column="0" Text="{Binding NameF}" FontSize="16"></TextBlock>
+                        <TextBlock Grid.Column="1" Text="{Binding Online2}" FontSize="16"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFCAFDBB" Offset="0"/>
+                    <GradientStop Color="#FFB1F99B" Offset="1"/>
+                </LinearGradientBrush>
+            </ListBox.Background>
+        </ListBox>
+
+        <ListBox x:Name="ListMessages" Grid.Column="2" Grid.Row="1" Grid.RowSpan="1" Grid.ColumnSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="210"></ColumnDefinition>
+                            <ColumnDefinition Width="210" x:Name="ThirdCol"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="{Binding ReceivedText}" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" TextAlignment="Left" FontSize="15"></TextBlock>
+                        <TextBlock Text="{Binding SentText}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" TextAlignment="Right" FontSize="15"></TextBlock>
+
+                        <TextBlock Height="40" Text="{Binding DateReceived}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" TextAlignment="Center" Margin="0,0,10,0" FontSize="11" Foreground="#FF726E6E"></TextBlock>
+                        <TextBlock Height="40" Text="{Binding DateSent}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" TextAlignment="Center" Margin="0,0,10,0" FontSize="11" Foreground="#FF726E6E"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFCAFDBB" Offset="0"/>
+                    <GradientStop Color="#FFB1F99B" Offset="1"/>
+                </LinearGradientBrush>
+            </ListBox.Background>
+        </ListBox>
+        <TextBox Grid.Column="2" Grid.Row="2" Height="40" HorizontalAlignment="Left" Name="txtMessage" VerticalAlignment="Top" Width="459" Margin="5,5,0,0" Text="" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" Grid.ColumnSpan="2" />
+        <Button Content="Отправить" Grid.Column="3" Grid.Row="2" Height="40" HorizontalAlignment="Right" Margin="0,5,10,0" Name="btnSend" VerticalAlignment="Top" Width="70" Click="btnSend_Click" FontSize="13" Cursor="Hand">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFCAFDBB" Offset="0"/>
+                    <GradientStop Color="#FFB1F99B" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBlock x:Name="txtInfoRecipient" Grid.Column="2" TextAlignment ="Center" FontSize="16" Grid.ColumnSpan="2" Height="25" TextWrapping="Wrap" LineHeight="16" FontWeight="Medium" RenderTransformOrigin="0.5,0.5" Text="" Margin="51,12,0,12" >
+            <TextBlock.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFCAFDBB" Offset="0"/>
+                    <GradientStop Color="#FFB1F99B" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
+        <Button x:Name="btnNumberMsges" Content="50" ToolTip="Количество выводимых сообщений. При нажатии увеличивается на 50." Grid.Column="2" HorizontalAlignment="Left" Margin="0,12,0,0" VerticalAlignment="Top" Width="50" Height="26" Cursor="Hand" Click="btnNumberMsges_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFCAFDBB" Offset="0"/>
+                    <GradientStop Color="#FFB1F99B" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Grid.Column="1" Height="50" HorizontalAlignment="Left" x:Name="btnSearch" VerticalAlignment="Top" Width="50" Click="btnSearch_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Chat;component/Images/images.png" />
+            </Button.Background>
+        </Button>
+    </Grid>
+</Page>

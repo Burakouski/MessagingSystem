@@ -1,0 +1,89 @@
+﻿<Page x:Class="Chat.Profile"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="298" d:DesignWidth="518"
+	Title="Profile" Width="750" Height="500">
+    <Page.Background>
+        <ImageBrush ImageSource="/Chat;component/Images/1152x720_surface-green-background.jpg" />
+    </Page.Background>
+    <Grid Width="750" Height="500" Loaded="Grid_Loaded" VerticalAlignment="Top">
+        <Label Content="Фамилия" Height="40" HorizontalAlignment="Left" Margin="140,103,0,0" Name="label1" VerticalAlignment="Top" FontSize="20" FontStyle="Italic" Foreground="#FFFFF8F8" Width="157" FontWeight="Normal" VerticalContentAlignment="Top">
+            <Label.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF7EA326" Offset="0" />
+                    <GradientStop Color="#FF2C6F3C" Offset="1" />
+                </RadialGradientBrush>
+            </Label.Background>
+        </Label>
+        <TextBlock Height="40" HorizontalAlignment="Left" Margin="303,103,0,0" Name="txtNameF" Text="фам" VerticalAlignment="Top" Width="356" FontSize="20" FontStyle="Italic" Foreground="#FFFFF8F8" FontWeight="Normal">
+            <TextBlock.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF7EA326" Offset="0" />
+                    <GradientStop Color="#FF2C6F3C" Offset="1" />
+                </RadialGradientBrush>
+            </TextBlock.Background></TextBlock>
+        <Label Content="Имя" Height="40" HorizontalAlignment="Left" Margin="140,149,0,0" Name="label2" VerticalAlignment="Top" FontSize="20" FontStyle="Italic" Foreground="#FFFFF8F8" Width="157" FontWeight="Normal" VerticalContentAlignment="Top">
+            <Label.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF7EA326" Offset="0" />
+                    <GradientStop Color="#FF2C6F3C" Offset="1" />
+                </RadialGradientBrush>
+            </Label.Background>
+        </Label>
+        <TextBlock Height="40" HorizontalAlignment="Left" Margin="303,149,0,0" Name="txtNameI" Text="им" VerticalAlignment="Top" Width="356" FontSize="20" FontStyle="Italic" Foreground="#FFFFF8F8" FontWeight="Normal">
+            <TextBlock.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF7EA326" Offset="0" />
+                    <GradientStop Color="#FF2C6F3C" Offset="1" />
+                </RadialGradientBrush>
+            </TextBlock.Background></TextBlock>
+        <Label Content="Отчество" Height="40" HorizontalAlignment="Left" Margin="140,195,0,0" Name="label3" VerticalAlignment="Top" FontSize="20" FontStyle="Italic" Foreground="#FFFFF8F8" Width="157" FontWeight="Normal" VerticalContentAlignment="Top">
+            <Label.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF7EA326" Offset="0" />
+                    <GradientStop Color="#FF2C6F3C" Offset="1" />
+                </RadialGradientBrush>
+            </Label.Background>
+        </Label>
+        <TextBlock Height="40" HorizontalAlignment="Left" Margin="303,195,0,0" Name="txtNameO" Text="отч" VerticalAlignment="Top" Width="356" FontSize="20" FontStyle="Italic" Foreground="#FFFFF8F8" FontWeight="Normal">
+            <TextBlock.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF7EA326" Offset="0" />
+                    <GradientStop Color="#FF2C6F3C" Offset="1" />
+                </RadialGradientBrush>
+            </TextBlock.Background></TextBlock>
+        <Label Content="Телефон" Height="40" HorizontalAlignment="Left" Margin="140,287,0,0" Name="label4" VerticalAlignment="Top" FontSize="20" FontStyle="Italic" Foreground="#FFFFF8F8" Width="157" FontWeight="Normal" VerticalContentAlignment="Top">
+            <Label.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF7EA326" Offset="0" />
+                    <GradientStop Color="#FF2C6F3C" Offset="1" />
+                </RadialGradientBrush>
+            </Label.Background>
+        </Label>
+        <TextBlock Height="40" HorizontalAlignment="Left" Margin="303,287,0,0" Name="txtPhone" Text="тел" VerticalAlignment="Top" Width="356" FontSize="20" FontStyle="Italic" Foreground="#FFFFF8F8" FontWeight="Normal">
+            <TextBlock.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF7EA326" Offset="0" />
+                    <GradientStop Color="#FF2C6F3C" Offset="1" />
+                </RadialGradientBrush>
+            </TextBlock.Background></TextBlock>
+        <Label Content="Дата рождения" Height="40" HorizontalAlignment="Left" Margin="140,0,0,219" Name="label5" VerticalAlignment="Bottom" FontSize="20" FontStyle="Italic" Foreground="#FFFFF8F8" FontWeight="Normal" VerticalContentAlignment="Top">
+            <Label.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF7EA326" Offset="0" />
+                    <GradientStop Color="#FF2C6F3C" Offset="1" />
+                </RadialGradientBrush>
+            </Label.Background>
+        </Label>
+        <TextBlock Height="40" HorizontalAlignment="Left" Margin="303,241,0,0" Name="txtBirthday" Text="ДР" VerticalAlignment="Top" Width="356" FontSize="20" FontStyle="Italic" Foreground="#FFFFF8F8" FontWeight="Normal">
+            <TextBlock.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF7EA326" Offset="0" />
+                    <GradientStop Color="#FF2C6F3C" Offset="1" />
+                </RadialGradientBrush>
+            </TextBlock.Background></TextBlock>
+    </Grid>
+</Page>

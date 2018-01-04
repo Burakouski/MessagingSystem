@@ -1,0 +1,15 @@
+E:\Projects\MessagingSystem\CORE\CoreTest\obj\x86\Debug\MainWindow.baml
+E:\Projects\MessagingSystem\CORE\CoreTest\obj\x86\Debug\MainWindow.g.cs
+E:\Projects\MessagingSystem\CORE\CoreTest\obj\x86\Debug\App.g.cs
+E:\Projects\MessagingSystem\CORE\CoreTest\obj\x86\Debug\CoreTest_MarkupCompile.cache
+E:\Projects\MessagingSystem\CORE\CoreTest\obj\x86\Debug\CoreTest.g.resources
+E:\Projects\MessagingSystem\CORE\CoreTest\obj\x86\Debug\CoreTest.Properties.Resources.resources
+E:\Projects\MessagingSystem\CORE\CoreTest\obj\x86\Debug\CoreTest.csproj.GenerateResource.Cache
+E:\Projects\MessagingSystem\CORE\CoreTest\bin\Debug\CoreTest.exe
+E:\Projects\MessagingSystem\CORE\CoreTest\bin\Debug\CoreTest.pdb
+E:\Projects\MessagingSystem\CORE\CoreTest\bin\Debug\CORE.dll
+E:\Projects\MessagingSystem\CORE\CoreTest\bin\Debug\CORE.pdb
+E:\Projects\MessagingSystem\CORE\CoreTest\obj\x86\Debug\CoreTest.csprojResolveAssemblyReference.cache
+E:\Projects\MessagingSystem\CORE\CoreTest\obj\x86\Debug\CoreTest.exe
+E:\Projects\MessagingSystem\CORE\CoreTest\obj\x86\Debug\CoreTest.pdb
+E:\Projects\MessagingSystem\CORE\CoreTest\obj\x86\Debug\CoreTest.csproj.CoreCompileInputs.cache
