@@ -15,13 +15,24 @@ using System.Windows.Shapes;
 namespace Chat
 {
     /// <summary>
-    /// Interaction logic for Profile.xaml
+    /// Профиль
     /// </summary>
     public partial class Profile : Page
     {
+        /// <summary>
+        /// Связывает с базой данных приложения MessagingSystem
+        /// </summary>
         private CORE.App mApp;
+        /// <summary>
+        /// Текущий пользователь
+        /// </summary>
         private CORE.User ProfileUser;
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса Profile
+        /// </summary>
+        /// <param name="pApp"></param>
+        /// <param name="user"></param>
         public Profile(CORE.App pApp, CORE.User user)
         {
             user.Read();
@@ -31,6 +42,11 @@ namespace Chat
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Отображение информации о пользователе
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             txtNameF.Text = ProfileUser.NameF;

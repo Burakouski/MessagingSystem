@@ -12,12 +12,43 @@
             Contacts
             </summary>
         </member>
+        <member name="F:Chat.Contacts.PresentUser">
+            <summary>
+            Текущий пользователь
+            </summary>
+        </member>
+        <member name="F:Chat.Contacts.MyWindow">
+            <summary>
+            Окно в котором загружается Contacts
+            </summary>
+        </member>
         <member name="M:Chat.Contacts.#ctor(CORE.User,Chat.NativeWindow)">
             <summary>
-            
+            Инициализирует новый экземпляр класса Contacts
             </summary>
             <param name="I_am"></param>
             <param name="win"></param>
+        </member>
+        <member name="M:Chat.Contacts.Page_Loaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Загрузка страницы
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.Contacts.btnWriteMessage_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Переходим к переписке с выбранным пользователем
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.Contacts.btnSearch_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Выполняем поиск контактов
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="M:Chat.Contacts.InitializeComponent">
             <summary>
@@ -32,6 +63,64 @@
             LoginPage
             </summary>
         </member>
+        <member name="F:Chat.Pages.LoginPage.IsLogin">
+            <summary>
+            Флаг, отмечающий произошел вход в систему или нет
+            </summary>
+        </member>
+        <member name="F:Chat.Pages.LoginPage.MainWin">
+            <summary>
+            Окно в котором загружается LoginPage
+            </summary>
+        </member>
+        <member name="M:Chat.Pages.LoginPage.#ctor(Chat.NativeWindow)">
+            <summary>
+            Инициализирует новый экземпляр класса LoginPage
+            </summary>
+            <param name="win"></param>
+        </member>
+        <member name="M:Chat.Pages.LoginPage.txtLogin_LostFocus(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Смена подсказок для поля txtLogin (Логин), при потере фокуса
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.Pages.LoginPage.txtLogin_GotFocus(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Смена подсказок для поля txtLogin (Логин), при получении фокуса
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.Pages.LoginPage.passwordBoxEdit1_GotFocus(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+             Смена подсказок для поля lblPassword (Пароль), при получении фокуса
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.Pages.LoginPage.passwordBoxEdit1_LostFocus(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Смена подсказок для поля lblPassword (Пароль), при потере фокуса
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.Pages.LoginPage.button1_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Проверяем Логин и Пароль
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.Pages.LoginPage.btnRegistration_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Переход на страницу регистрации
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:Chat.Pages.LoginPage.InitializeComponent">
             <summary>
             InitializeComponent
@@ -39,11 +128,98 @@
         </member>
         <member name="T:Chat.Pages.Messages">
             <summary>
-            Interaction logic for Messages.xaml
+            Страница сообщений
             </summary>
             <summary>
             Messages
             </summary>
+        </member>
+        <member name="F:Chat.Pages.Messages.NumberMessages">
+             <summary>
+            Количество отображаемых сообщений
+             </summary>
+        </member>
+        <member name="F:Chat.Pages.Messages.PresentUser">
+            <summary>
+            Текущий пользователь
+            </summary>
+        </member>
+        <member name="F:Chat.Pages.Messages.RecipientUser">
+            <summary>
+            Пользователь с кем ведется переписка
+            </summary>
+        </member>
+        <member name="F:Chat.Pages.Messages.MainWin">
+            <summary>
+            Окно в котором загружается Messages (Страница сообщений)
+            </summary>
+        </member>
+        <member name="M:Chat.Pages.Messages.#ctor(CORE.User,Chat.NativeWindow)">
+            <summary>
+            Инициализирует новый экземпляр класса Messages
+            </summary>
+            <param name="I_am"></param>
+            <param name="win"></param>
+        </member>
+        <member name="M:Chat.Pages.Messages.#ctor(CORE.User,CORE.User,Chat.NativeWindow)">
+            <summary>
+            Инициализирует новый экземпляр класса Messages (Для перехода со страницы контактов). 
+            С учётом пользовтеля, с которым ведется переписка
+            </summary>
+            <param name="I_am"></param>
+            <param name="Recipient"></param>
+            <param name="win"></param>
+        </member>
+        <member name="M:Chat.Pages.Messages.LoadListBoxContacts">
+            <summary>
+            Отображаем контакты
+            </summary>
+        </member>
+        <member name="M:Chat.Pages.Messages.LoadMessages(CORE.User,CORE.User)">
+            <summary>
+            отображаем переписку между пользователями Sender (текущий пользователь) и Recipient
+            </summary>
+            <param name="Sender"></param>
+            <param name="Recipient"></param>
+        </member>
+        <member name="M:Chat.Pages.Messages.ListContacts_SelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            Переопределение пользователя с которым ведется переписка, при изменении выбора пользователя
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.Pages.Messages.SetInfoRecipient">
+            <summary>
+            Отображение информации о пользователе с которым ведется переписка и его статусе онлайн
+            </summary>
+        </member>
+        <member name="M:Chat.Pages.Messages.btnSend_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Отправляем сообщение
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.Pages.Messages.SelectedUser">
+            <summary>
+             Возвращаем выбранного пользователя (пользователя с кем ведется переписка)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Chat.Pages.Messages.btnNumberMsges_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Увеличиваем количество отображаемых сообщений
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.Pages.Messages.btnSearch_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Ищем контакты
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="M:Chat.Pages.Messages.InitializeComponent">
             <summary>
@@ -58,6 +234,49 @@
             Registration
             </summary>
         </member>
+        <member name="F:Chat.Pages.Registration.MainWin">
+            <summary>
+            Окно в котором загружается Registration
+            </summary>
+        </member>
+        <member name="M:Chat.Pages.Registration.#ctor(Chat.NativeWindow)">
+            <summary>
+            Инициализирует новый экземпляр класса Registration
+            </summary>
+            <param name="win"></param>
+        </member>
+        <member name="M:Chat.Pages.Registration.btnCancel_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Возвращение к странице входа LoginPage
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.Pages.Registration.btnOK_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Регистрация
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.Pages.Registration.CheckPassword">
+            <summary>
+            Проверка совпадения вводимых значений в полях "Пароль" и "Еще раз пароль"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Chat.Pages.Registration.CheckFields">
+            <summary>
+            Проверка заполненности полей
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Chat.Pages.Registration.ShowErrorMessage(System.String)">
+            <summary>
+            Сообщение об ошибке с текстом "text"
+            </summary>
+            <param name="text"></param>
+        </member>
         <member name="M:Chat.Pages.Registration.InitializeComponent">
             <summary>
             InitializeComponent
@@ -65,11 +284,35 @@
         </member>
         <member name="T:Chat.Profile">
             <summary>
-            Interaction logic for Profile.xaml
+            Профиль
             </summary>
             <summary>
             Profile
             </summary>
+        </member>
+        <member name="F:Chat.Profile.mApp">
+            <summary>
+            Связывает с базой данных приложения MessagingSystem
+            </summary>
+        </member>
+        <member name="F:Chat.Profile.ProfileUser">
+            <summary>
+            Текущий пользователь
+            </summary>
+        </member>
+        <member name="M:Chat.Profile.#ctor(CORE.App,CORE.User)">
+            <summary>
+            Инициализирует новый экземпляр класса Profile
+            </summary>
+            <param name="pApp"></param>
+            <param name="user"></param>
+        </member>
+        <member name="M:Chat.Profile.Grid_Loaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Отображение информации о пользователе
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="M:Chat.Profile.InitializeComponent">
             <summary>
@@ -79,6 +322,81 @@
         <member name="T:Chat.NativeWindow">
             <summary>
             NativeWindow
+            </summary>
+        </member>
+        <member name="F:Chat.NativeWindow.prof">
+            <summary>
+            Страница "Профиль"
+            </summary>
+        </member>
+        <member name="F:Chat.NativeWindow.LP">
+            <summary>
+            Страница входа в приложение
+            </summary>
+        </member>
+        <member name="F:Chat.NativeWindow.mApp">
+            <summary>
+            Связывает с базой данных приложения MessagingSystem
+            </summary>
+        </member>
+        <member name="F:Chat.NativeWindow.PresentUser">
+            <summary>
+            Текущий пользователь
+            </summary>
+        </member>
+        <member name="M:Chat.NativeWindow.#ctor">
+            <summary>
+            Инициализирует новый экземпляр класса NativeWindow. Создает класс App для связи с базой данных
+            </summary>
+        </member>
+        <member name="M:Chat.NativeWindow.BtnProfile_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Переход на страницу профиля
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.NativeWindow.BtnContacts_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Переход на страницу Контакты
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.NativeWindow.BtnMessages_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            переход на страницу Сообщения
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.NativeWindow.GoToMessagePage(CORE.User)">
+            <summary>
+            Перенаправляет на страницу Сообщения к переписке с выбранным пользователем со страницы Контакты
+            </summary>
+            <param name="Repicient"></param>
+        </member>
+        <member name="M:Chat.NativeWindow.LoginTrue(System.Object)">
+            <summary>
+            Вход в притложение. Определяет текущего пользователя и перенаправляет на страницу Профиль.
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="M:Chat.NativeWindow.btnExit_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Выход из приложения
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Chat.NativeWindow.DisableMenu">
+            <summary>
+            Деактивация меню
+            </summary>
+        </member>
+        <member name="M:Chat.NativeWindow.EnableMenu">
+            <summary>
+            Активация меню
             </summary>
         </member>
         <member name="M:Chat.NativeWindow.InitializeComponent">
@@ -102,19 +420,6 @@
         <member name="M:Chat.App.Main">
             <summary>
             Application Entry Point.
-            </summary>
-        </member>
-        <member name="T:Chat.MainWindow">
-            <summary>
-            Interaction logic for MainWindow.xaml
-            </summary>
-            <summary>
-            MainWindow
-            </summary>
-        </member>
-        <member name="M:Chat.MainWindow.InitializeComponent">
-            <summary>
-            InitializeComponent
             </summary>
         </member>
         <member name="T:Chat.Properties.Resources">

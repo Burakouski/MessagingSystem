@@ -19,19 +19,35 @@ namespace Chat.Pages
     /// </summary>
     public partial class Registration : Page
     {
+        /// <summary>
+        /// Окно в котором загружается Registration
+        /// </summary>
         NativeWindow MainWin;
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса Registration
+        /// </summary>
+        /// <param name="win"></param>
         public Registration(NativeWindow win)
         {
             MainWin = win;
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Возвращение к странице входа LoginPage
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             MainWin.Main.Content = new Pages.LoginPage(MainWin);
         }
 
+        /// <summary>
+        /// Регистрация
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -61,6 +77,10 @@ namespace Chat.Pages
 
         }
 
+        /// <summary>
+        /// Проверка совпадения вводимых значений в полях "Пароль" и "Еще раз пароль"
+        /// </summary>
+        /// <returns></returns>
         private bool CheckPassword()
         {
             if (passBox.Password == passwordBoxCheck.Password)
@@ -73,7 +93,10 @@ namespace Chat.Pages
                 return false;
             }
         }
-
+        /// <summary>
+        /// Проверка заполненности полей
+        /// </summary>
+        /// <returns></returns>
         private bool CheckFields()
         {
             bool Is = true;
@@ -130,7 +153,10 @@ namespace Chat.Pages
             return Is;
         }
 
-
+        /// <summary>
+        /// Сообщение об ошибке с текстом "text"
+        /// </summary>
+        /// <param name="text"></param>
         private void ShowErrorMessage(string text)
         {
             MessageBox.Show(text, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);

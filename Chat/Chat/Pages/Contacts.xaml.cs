@@ -20,11 +20,18 @@ namespace Chat
     /// </summary>
     public partial class Contacts : Page
     {
+        /// <summary>
+        /// Текущий пользователь
+        /// </summary>
         CORE.User PresentUser;
+
+        /// <summary>
+        /// Окно в котором загружается Contacts
+        /// </summary>
         NativeWindow MyWindow;
 
         /// <summary>
-        /// 
+        /// Инициализирует новый экземпляр класса Contacts
         /// </summary>
         /// <param name="I_am"></param>
         /// <param name="win"></param>
@@ -37,30 +44,53 @@ namespace Chat
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// Загрузка страницы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            // Обновляем онлайн-статус пользователя.
             PresentUser.MakeOnLine();
+
+            // Загружаем контакты
             CORE.UserCollection UserList = new CORE.UserCollection(MyWindow.mApp);
             UserList.FillList(PresentUser);
 
+            // Отображаем контакты
             foreach (CORE.User u in UserList)
             {
                 listContacts.Items.Add(u);
             }
         }
-
+        /// <summary>
+        /// Переходим к переписке с выбранным пользователем
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnWriteMessage_Click(object sender, RoutedEventArgs e)
         {
+            // Обновляем онлайн-статус пользователя.
             PresentUser.MakeOnLine();
+
             CORE.User repicient = new CORE.User(MyWindow.mApp, Convert.ToInt32((sender as Button).Tag));
             repicient.Read();
+
             MyWindow.GoToMessagePage(repicient);
         }
 
+        /// <summary>
+        /// Выполняем поиск контактов
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            // Обновляем онлайн-статус пользователя.
             PresentUser.MakeOnLine();
+
+            // Перезагружаем отображаемых пользователей.
             listContacts.Items.Clear();
             CORE.UserCollection UserList = new CORE.UserCollection(MyWindow.mApp);
             UserList.FillList(PresentUser, txtSearch.Text);

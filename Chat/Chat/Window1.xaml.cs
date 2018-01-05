@@ -15,13 +15,29 @@ namespace Chat
 {
     public partial class NativeWindow : Window
     {
+        /// <summary>
+        /// Страница "Профиль"
+        /// </summary>
         Profile prof;
+
+        /// <summary>
+        /// Страница входа в приложение
+        /// </summary>
         Pages.LoginPage LP;
+
+        /// <summary>
+        /// Связывает с базой данных приложения MessagingSystem
+        /// </summary>
         public CORE.App mApp;
 
-
+        /// <summary>
+        /// Текущий пользователь
+        /// </summary>
         private CORE.User PresentUser;
-        
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса NativeWindow. Создает класс App для связи с базой данных
+        /// </summary>
         public NativeWindow()
         {
             try
@@ -38,27 +54,48 @@ namespace Chat
             }
         }
 
-
+        /// <summary>
+        /// Переход на страницу профиля
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnProfile_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Profile(mApp, PresentUser);
         }
-
+        /// <summary>
+        /// Переход на страницу Контакты
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnContacts_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Contacts(PresentUser, this);
         }
 
+        /// <summary>
+        /// переход на страницу Сообщения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnMessages_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Pages.Messages(PresentUser, this);
         }
 
+        /// <summary>
+        /// Перенаправляет на страницу Сообщения к переписке с выбранным пользователем со страницы Контакты
+        /// </summary>
+        /// <param name="Repicient"></param>
         public void GoToMessagePage(CORE.User Repicient)
         {
             Main.Content = new Pages.Messages(PresentUser, Repicient, this);
         }
 
+        /// <summary>
+        /// Вход в притложение. Определяет текущего пользователя и перенаправляет на страницу Профиль.
+        /// </summary>
+        /// <param name="sender"></param>
         public void LoginTrue(object sender)
         {
             PresentUser = new CORE.User(mApp, (int)sender);
@@ -69,6 +106,11 @@ namespace Chat
             PresentUser.MakeOnLine();
         }
 
+        /// <summary>
+        /// Выход из приложения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             LP = new Pages.LoginPage(this);
@@ -76,12 +118,17 @@ namespace Chat
             DisableMenu();
         }
 
-
+        /// <summary>
+        /// Деактивация меню
+        /// </summary>
         private void DisableMenu()
         {
             ChatMenuPanel.IsEnabled = false;
         }
 
+        /// <summary>
+        /// Активация меню
+        /// </summary>
         private void EnableMenu()
         {
             ChatMenuPanel.IsEnabled = true;

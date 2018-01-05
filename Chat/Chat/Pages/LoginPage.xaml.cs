@@ -19,17 +19,24 @@ namespace Chat.Pages
     /// </summary>
     public partial class LoginPage : Page
     {
+        /// <summary>
+        /// Флаг, отмечающий произошел вход в систему или нет
+        /// </summary>
         public bool IsLogin = false;
-        public event EventHandler IsLoginChanged;
+
+        /// <summary>
+        /// Окно в котором загружается LoginPage
+        /// </summary>
         NativeWindow MainWin;
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса LoginPage
+        /// </summary>
+        /// <param name="win"></param>
         public LoginPage(NativeWindow win)
         {
             InitializeComponent();
             MainWin = win;
-
-
-            this.IsLoginChanged += new EventHandler(IsLogin_Changed);
         }
 
         private void IsLogin_Changed(object sender, EventArgs args)
@@ -37,6 +44,11 @@ namespace Chat.Pages
 
         }
 
+        /// <summary>
+        /// Смена подсказок для поля txtLogin (Логин), при потере фокуса
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtLogin_LostFocus(object sender, RoutedEventArgs e)
         {
             if (txtLogin.Text.Length == 0)
@@ -45,7 +57,11 @@ namespace Chat.Pages
                 LblLogin.Content = String.Empty;
             }
         }
-
+        /// <summary>
+        /// Смена подсказок для поля txtLogin (Логин), при получении фокуса
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtLogin_GotFocus(object sender, RoutedEventArgs e)
         {
             LblLogin.Content = "Логин";
@@ -54,7 +70,11 @@ namespace Chat.Pages
                 txtLogin.Text = String.Empty;
             }
         }
-
+        /// <summary>
+        ///  Смена подсказок для поля lblPassword (Пароль), при получении фокуса
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void passwordBoxEdit1_GotFocus(object sender, RoutedEventArgs e)
         {
             lblPassword.Content = "Пароль";
@@ -63,7 +83,11 @@ namespace Chat.Pages
                 passwordBoxEdit1.Text = String.Empty;
             }
         }
-
+        /// <summary>
+        /// Смена подсказок для поля lblPassword (Пароль), при потере фокуса
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void passwordBoxEdit1_LostFocus(object sender, RoutedEventArgs e)
         {
             if (passwordBoxEdit1.Text.Length == 0)
@@ -71,7 +95,11 @@ namespace Chat.Pages
                 lblPassword.Content = String.Empty;
             }
         }
-
+        /// <summary>
+        /// Проверяем Логин и Пароль
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             CORE.User us = new CORE.User(MainWin.mApp);
@@ -87,11 +115,11 @@ namespace Chat.Pages
                 MainWin.LoginTrue(IdUser);
             }
         }
-
-        private void LoginIn()
-        { 
-        }
-
+        /// <summary>
+        /// Переход на страницу регистрации
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRegistration_Click(object sender, RoutedEventArgs e)
         {
             MainWin.Main.Content = new Pages.Registration(MainWin);

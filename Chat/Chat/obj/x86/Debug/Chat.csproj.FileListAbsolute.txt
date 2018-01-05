@@ -157,14 +157,12 @@ E:\GIT\MessagingSystem\Chat\Chat\bin\Debug\DevExpress.Xpf.RichEdit.v11.1.xml
 E:\GIT\MessagingSystem\Chat\Chat\bin\Debug\DevExpress.Data.v11.1.Linq.xml
 E:\GIT\MessagingSystem\Chat\Chat\bin\Debug\DevExpress.Xpf.Printing.v11.1.xml
 E:\GIT\MessagingSystem\Chat\Chat\obj\x86\Debug\Pages\Contacts.baml
-E:\GIT\MessagingSystem\Chat\Chat\obj\x86\Debug\ZExample.baml
 E:\GIT\MessagingSystem\Chat\Chat\obj\x86\Debug\Pages\LoginPage.baml
 E:\GIT\MessagingSystem\Chat\Chat\obj\x86\Debug\Pages\Messages.baml
 E:\GIT\MessagingSystem\Chat\Chat\obj\x86\Debug\Pages\Profile.baml
 E:\GIT\MessagingSystem\Chat\Chat\obj\x86\Debug\Window1.baml
 E:\GIT\MessagingSystem\Chat\Chat\obj\x86\Debug\Pages\Contacts.g.cs
 E:\GIT\MessagingSystem\Chat\Chat\obj\x86\Debug\Pages\Registration.g.cs
-E:\GIT\MessagingSystem\Chat\Chat\obj\x86\Debug\ZExample.g.cs
 E:\GIT\MessagingSystem\Chat\Chat\obj\x86\Debug\Pages\LoginPage.g.cs
 E:\GIT\MessagingSystem\Chat\Chat\obj\x86\Debug\Pages\Messages.g.cs
 E:\GIT\MessagingSystem\Chat\Chat\obj\x86\Debug\Pages\Profile.g.cs

@@ -15,15 +15,32 @@ using System.Windows.Shapes;
 namespace Chat.Pages
 {
     /// <summary>
-    /// Interaction logic for Messages.xaml
+    /// Страница сообщений
     /// </summary>
     public partial class Messages : Page
     {
+        /// <summary>
+        ///Количество отображаемых сообщений
+        /// </summary>
         private int NumberMessages = 50;
+        /// <summary>
+        /// Текущий пользователь
+        /// </summary>
         CORE.User PresentUser;
+        /// <summary>
+        /// Пользователь с кем ведется переписка
+        /// </summary>
         CORE.User RecipientUser;
+        /// <summary>
+        /// Окно в котором загружается Messages (Страница сообщений)
+        /// </summary>
         NativeWindow MainWin;
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса Messages
+        /// </summary>
+        /// <param name="I_am"></param>
+        /// <param name="win"></param>
         public Messages(CORE.User I_am, NativeWindow win)
         {
             InitializeComponent();
@@ -33,7 +50,13 @@ namespace Chat.Pages
             LoadListBoxContacts();
             PresentUser.MakeOnLine();
         }
-
+        /// <summary>
+        /// Инициализирует новый экземпляр класса Messages (Для перехода со страницы контактов). 
+        /// С учётом пользовтеля, с которым ведется переписка
+        /// </summary>
+        /// <param name="I_am"></param>
+        /// <param name="Recipient"></param>
+        /// <param name="win"></param>
         public Messages(CORE.User I_am, CORE.User Recipient, NativeWindow win)
         {
             InitializeComponent();
@@ -44,11 +67,14 @@ namespace Chat.Pages
             SetInfoRecipient();
 
             LoadListBoxContacts();
-            LoadMessages((int)PresentUser.IdUser, RecipientUser);
+            LoadMessages(PresentUser, RecipientUser);
             PresentUser.MakeOnLine();
 
         }
 
+        /// <summary>
+        /// Отображаем контакты
+        /// </summary>
         private void LoadListBoxContacts()
         {
             ListContacts.Items.Clear();
@@ -67,50 +93,80 @@ namespace Chat.Pages
         {
             
         }
-
-        private void LoadMessages(int IdSender, CORE.User Recipient)
+        /// <summary>
+        /// отображаем переписку между пользователями Sender (текущий пользователь) и Recipient
+        /// </summary>
+        /// <param name="Sender"></param>
+        /// <param name="Recipient"></param>
+        private void LoadMessages(CORE.User Sender, CORE.User Recipient)
         {
             if (Recipient != null)
             {
                 CORE.MessageCollection mesco = new CORE.MessageCollection(MainWin.mApp);
-                mesco.Fill(IdSender, (int)Recipient.IdUser, NumberMessages);
+                mesco.Fill((int)Sender.IdUser, (int)Recipient.IdUser, NumberMessages);
                 ListMessages.ItemsSource = mesco;
             }
         }
 
+        /// <summary>
+        /// Переопределение пользователя с которым ведется переписка, при изменении выбора пользователя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ListContacts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // Обновляем онлайн-статус пользователя. 
+            PresentUser.MakeOnLine();
 
             RecipientUser = new CORE.User(MainWin.mApp, (int)((ListContacts.SelectedItem as CORE.User).IdUser));
             SetInfoRecipient();
-            LoadMessages((int)PresentUser.IdUser, RecipientUser);
+            LoadMessages(PresentUser, RecipientUser);
         }
 
+        /// <summary>
+        /// Отображение информации о пользователе с которым ведется переписка и его статусе онлайн
+        /// </summary>
         private void SetInfoRecipient()
         {
             RecipientUser.Read();
             txtInfoRecipient.Text = RecipientUser.GetInformation();
         }
 
+        /// <summary>
+        /// Отправляем сообщение
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
+            // Обновляем онлайн-статус пользователя. 
             PresentUser.MakeOnLine();
+
             if (RecipientUser != null)
             {
                 CORE.Message NewMessage = new CORE.Message(MainWin.mApp);
                 string Text = txtMessage.Text;
                 NewMessage.Send((int)PresentUser.IdUser, (int)RecipientUser.IdUser, Text);
 
-                LoadMessages((int)PresentUser.IdUser, RecipientUser);
+                LoadMessages(PresentUser, RecipientUser);
                 txtMessage.Clear();
             }
         }
 
+        /// <summary>
+        ///  Возвращаем выбранного пользователя (пользователя с кем ведется переписка)
+        /// </summary>
+        /// <returns></returns>
         private CORE.User SelectedUser()
         {
             return ListContacts.SelectedItem as CORE.User;
         }
 
+        /// <summary>
+        /// Увеличиваем количество отображаемых сообщений
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNumberMsges_Click(object sender, RoutedEventArgs e)
         {
             PresentUser.MakeOnLine();
@@ -118,10 +174,15 @@ namespace Chat.Pages
             btnNumberMsges.Content = NumberMessages.ToString();
             if (RecipientUser != null)
             {
-                LoadMessages((int)PresentUser.IdUser, RecipientUser);
+                LoadMessages(PresentUser, RecipientUser);
             }
         }
 
+        /// <summary>
+        /// Ищем контакты
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             PresentUser.MakeOnLine();
