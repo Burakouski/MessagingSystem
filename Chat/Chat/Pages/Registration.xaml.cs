@@ -19,9 +19,9 @@ namespace Chat.Pages
     /// </summary>
     public partial class Registration : Page
     {
-        Window1 MainWin;
+        NativeWindow MainWin;
 
-        public Registration(Window1 win)
+        public Registration(NativeWindow win)
         {
             MainWin = win;
             InitializeComponent();

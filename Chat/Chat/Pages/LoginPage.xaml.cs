@@ -1,4 +1,4 @@
-п»їusing System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,16 +21,13 @@ namespace Chat.Pages
     {
         public bool IsLogin = false;
         public event EventHandler IsLoginChanged;
-        Window1 MainWin;
+        NativeWindow MainWin;
 
-        public LoginPage(Window1 win)
+        public LoginPage(NativeWindow win)
         {
             InitializeComponent();
             MainWin = win;
 
-            txtLogin.Text = "Ivanov";
-            passwordBoxEdit1.Text = "123";
-            //button1_Click(btnOK, new RoutedEventArgs());
 
             this.IsLoginChanged += new EventHandler(IsLogin_Changed);
         }
@@ -44,15 +41,15 @@ namespace Chat.Pages
         {
             if (txtLogin.Text.Length == 0)
             {
-                txtLogin.Text = "Р›РѕРіРёРЅ";
+                txtLogin.Text = "Логин";
                 LblLogin.Content = String.Empty;
             }
         }
 
         private void txtLogin_GotFocus(object sender, RoutedEventArgs e)
         {
-            LblLogin.Content = "Р›РѕРіРёРЅ";
-            if (txtLogin.Text == "Р›РѕРіРёРЅ")
+            LblLogin.Content = "Логин";
+            if (txtLogin.Text == "Логин")
             {
                 txtLogin.Text = String.Empty;
             }
@@ -60,8 +57,8 @@ namespace Chat.Pages
 
         private void passwordBoxEdit1_GotFocus(object sender, RoutedEventArgs e)
         {
-            lblPassword.Content = "РџР°СЂРѕР»СЊ";
-            if (passwordBoxEdit1.Text == "РџР°СЂРѕР»СЊ")
+            lblPassword.Content = "Пароль";
+            if (passwordBoxEdit1.Text == "Пароль")
             {
                 passwordBoxEdit1.Text = String.Empty;
             }
@@ -82,13 +79,12 @@ namespace Chat.Pages
             int? IdUser = us.CheckLogin(txtLogin.Text, passwordBoxEdit1.Password);
             if (IdUser == null)
             {
-                MessageBox.Show("РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ Р»РѕРіРёРЅ Рё/РёР»Рё РїР°СЂРѕР»СЊ", "РћС€РёР±РєР°", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Неправильный логин и/или пароль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
                 IsLogin = true;
                 MainWin.LoginTrue(IdUser);
-                //MainWin.//IsLoginChanged.Invoke(IdUser, e);
             }
         }
 

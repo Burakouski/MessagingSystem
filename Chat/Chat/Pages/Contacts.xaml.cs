@@ -21,11 +21,11 @@ namespace Chat
     public partial class Contacts : Page
     {
         CORE.User PresentUser;
-        Window1 MyWindow;
+        NativeWindow MyWindow;
 
         public event EventHandler SendMsg_Click;
 
-        public Contacts(CORE.User I_am, Window1 win)
+        public Contacts(CORE.User I_am, NativeWindow win)
         {
             PresentUser = I_am;
             PresentUser.MakeOnLine();

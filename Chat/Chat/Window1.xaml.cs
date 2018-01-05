@@ -13,24 +13,29 @@ using System.Windows.Shapes;
 
 namespace Chat
 {
-    public partial class Window1 : Window
+    public partial class NativeWindow : Window
     {
         Profile prof;
         Pages.LoginPage LP;
         public CORE.App mApp;
 
 
-        private CORE.User PresentUser; // = new CORE.User(new mApp, 1);
+        private CORE.User PresentUser;
         
-        public Window1()
+        public NativeWindow()
         {
-            InitializeComponent();
-            mApp = new CORE.App(@"Data Source=.\SQLEXPRESS;Initial Catalog=MessagingSystem; Integrated Security=True;");
-            LP = new Pages.LoginPage(this);
-                             //Main.Content = new Contacts(PresentUser, this);
-            Main.Content = LP;
-            ChatMenuPanel.IsEnabled = false;
-            
+            try
+            {
+                InitializeComponent();
+                mApp = new CORE.App(@"Data Source=.\SQLEXPRESS;Initial Catalog=MessagingSystem; Integrated Security=True;");
+                LP = new Pages.LoginPage(this);
+                Main.Content = LP;
+                ChatMenuPanel.IsEnabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
 

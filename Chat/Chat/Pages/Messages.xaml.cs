@@ -22,9 +22,9 @@ namespace Chat.Pages
         private int NumberMessages = 50;
         CORE.User PresentUser;
         CORE.User RecipientUser;
-        Window1 MainWin;
+        NativeWindow MainWin;
 
-        public Messages(CORE.User I_am, Window1 win)
+        public Messages(CORE.User I_am, NativeWindow win)
         {
             InitializeComponent();
             MainWin = win;
@@ -32,10 +32,9 @@ namespace Chat.Pages
 
             LoadListBoxContacts();
             PresentUser.MakeOnLine();
-            //LoadMessages((int)PresentUser.IdUser, (int)RecipientUser.IdUser);
         }
 
-        public Messages(CORE.User I_am, CORE.User Recipient, Window1 win)
+        public Messages(CORE.User I_am, CORE.User Recipient, NativeWindow win)
         {
             InitializeComponent();
             MainWin = win;
