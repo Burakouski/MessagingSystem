@@ -8,22 +8,37 @@ using System.Collections;
 
 namespace CORE
 {
+    /// <summary>
+    /// Коллекция пользователей/контактов пользователя. Получаем из базы данных.
+    /// </summary>
     public class UserCollection : IEnumerable, IEnumerator
     {
+        /// <summary>
+        /// Связывает класс и базу данных приложения MessagingSystem
+        /// </summary>
         App mApp;
      //   public List<User> UserList {get; set;}
 
         ArrayList ArrayUser;
         int position = -1;
-
+        /// <summary>
+        /// Возвращает текущий элемент коллекции
+        /// </summary>
         public object Current { get { return ArrayUser[position]; } private set { } }
-        
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса UserCollection
+        /// </summary>
+        /// <param name="papp"></param>
         public UserCollection(App papp)
         {
             mApp = papp;
             ArrayUser = new ArrayList();
         }
-
+        /// <summary>
+        /// Определяет список контактов для текущего пользователя.
+        /// </summary>
+        /// <param name="curUser"></param>
         public void FillList(User curUser)
         {
             DataTable dt = new DataTable();
@@ -52,10 +67,6 @@ namespace CORE
 
                 R.Dispose();
                 SC.Dispose();
-                //SqlDataAdapter adapt = new SqlDataAdapter(SC);
-                //adapt.Fill(dt);
-                //return dt;
-
             }
             catch (Exception ex)
             {
@@ -66,7 +77,11 @@ namespace CORE
                 mApp.CloseConnection();
             }
         }
-
+        /// <summary>
+        /// Определяет список контактов для текущего пользователя по поиску (ФИО пользователя включает строку SearchString)
+        /// </summary>
+        /// <param name="curUser"></param>
+        /// <param name="SearchString"></param>
         public void FillList(User curUser, string SearchString)
         {
             DataTable dt = new DataTable();
@@ -109,7 +124,10 @@ namespace CORE
                 mApp.CloseConnection();
             }
         }
-
+        /// <summary>
+        /// для foreach
+        /// </summary>
+        /// <returns></returns>
         public bool MoveNext()
         {
             if (position < ArrayUser.Count - 1)
@@ -122,12 +140,13 @@ namespace CORE
                 return false;
             }
         }
+        /// <summary>
+        /// для foreach
+        /// </summary>
         public void Reset()
         {
             position = -1;
         }
-
-
 
         IEnumerator IEnumerable.GetEnumerator()
         {

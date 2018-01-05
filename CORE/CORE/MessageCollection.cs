@@ -7,20 +7,39 @@ using System.Data;
 using System.Collections;
 namespace CORE
 {
+    /// <summary>
+    /// Коллекция сообщений, получаемая из базы данных
+    /// </summary>
     public class MessageCollection : IEnumerable, IEnumerator
     {
+        /// <summary>
+        /// Связывает класс и базу данных приложения MessagingSystem
+        /// </summary>
         App mApp;
         ArrayList ArrayMessage;
         int position = -1;
 
+        /// <summary>
+        /// Возвращает текущий элемент коллекции
+        /// </summary>
         public object Current { get { return ArrayMessage[position]; } private set { } }
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса MessageCollection
+        /// </summary>
+        /// <param name="papp"></param>
         public MessageCollection(App papp)
         {
             mApp = papp;
             ArrayMessage = new ArrayList();
         }
-
+        /// <summary>
+        /// Определяет переписку между пользователем c идентификатором IdUserSender 
+        /// и пользователем с идентификатором IdUserRecipient, где NumberMessages - количество последних сообщений в переписке
+        /// </summary>
+        /// <param name="IdUserSender"></param>
+        /// <param name="IdUserRecipient"></param>
+        /// <param name="NumberMessages"></param>
         public void Fill(int IdUserSender, int IdUserRecipient, int NumberMessages)
         {
             DataTable dt = new DataTable();
@@ -82,7 +101,10 @@ namespace CORE
                 mApp.CloseConnection();
             }
         }
-
+        /// <summary>
+        /// для foreach
+        /// </summary>
+        /// <returns></returns>
         public bool MoveNext()
         {
             if (position < ArrayMessage.Count - 1)
@@ -95,7 +117,9 @@ namespace CORE
                 return false;
             }
         }
-
+        /// <summary>
+        /// для foreach
+        /// </summary>
         public void Reset()
         {
             position = -1;

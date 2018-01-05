@@ -7,37 +7,79 @@ using System.Data;
 
 namespace CORE
 {
+    /// <summary>
+    /// Пользователь
+    /// </summary>
     public class User
     {
         App mApp;
-
+        /// <summary>
+        /// идентификатор пользователя
+        /// </summary>
         public int? IdUser { get; set; }
+        /// <summary>
+        /// Фамилия
+        /// </summary>
         public string NameF { get; set; }
+        /// <summary>
+        /// Имя
+        /// </summary>
         public string NameI { get; set; }
+        /// <summary>
+        /// Отчество
+        /// </summary>
         public string NameO { get; set; }
-
+        /// <summary>
+        /// Дата рождения
+        /// </summary>
         public DateTime Birthday { get; set; }
+        /// <summary>
+        /// Телефон
+        /// </summary>
         public string Phone { get; set; }
+        /// <summary>
+        /// Дата регистрации
+        /// </summary>
         public DateTime DateRegistration { get; set; }
-
+        /// <summary>
+        /// Логин
+        /// </summary>
         public string Login { get; set; }
+        /// <summary>
+        /// пароль
+        /// </summary>
         public string Password { get; set; }
-
+        /// <summary>
+        /// Полное описание присутствия пользователя онлайн 
+        /// </summary>
         public string Online { get; set; }
+        /// <summary>
+        /// Краткое описание присутствия пользователя онлайн
+        /// </summary>
         public string Online2 { get; set; }
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса User, не существующий в базе данных приложения MessagingSystem
+        /// </summary>
+        /// <param name="pApp"></param>
         public User(App pApp)
         {
             mApp = pApp;
 
         }
-
+        /// <summary>
+        /// Инициализирует новый экземпляр класса User, существующий в базе данных приложения MessagingSystem
+        /// </summary>
+        /// <param name="pApp"></param>
+        /// <param name="idUser"></param>
         public User(App pApp, int idUser)
         {
             mApp = pApp;
             IdUser = idUser;
         }
-
+        /// <summary>
+        /// Регистрация пользователя
+        /// </summary>
         public void NewUser()
         {
             try
@@ -67,7 +109,9 @@ namespace CORE
                 mApp.CloseConnection();
             }
         }
-
+        /// <summary>
+        /// Считывает информацию о пользователе из базы данных приложения MessagingSystem
+        /// </summary>
         public void Read()
         {
             try
@@ -105,7 +149,12 @@ namespace CORE
                 mApp.CloseConnection();
             }
         }
-
+        /// <summary>
+        /// Проверяет правильность введенных логина и пароля
+        /// </summary>
+        /// <param name="Login"></param>
+        /// <param name="Password"></param>
+        /// <returns></returns>
         public int? CheckLogin( string Login, string Password)
         {
             DataTable dt = new DataTable();
@@ -137,29 +186,9 @@ namespace CORE
             }
         }
 
-        public void MakeOffLine()
-        {
-            try
-            {
-                SqlCommand SC = new SqlCommand("dbo.UserOffLine", mApp.Connection);
-                SC.CommandType = CommandType.StoredProcedure;
-
-                SC.Parameters.AddWithValue("@IdUser", IdUser);
-
-                mApp.OpenConnection();
-
-                SC.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                mApp.CloseConnection();
-            }
-        }
-
+        /// <summary>
+        /// Обновляет информацию в базе данных о присутствии пользователя онлайн
+        /// </summary>
         public void MakeOnLine()
         {
             try
@@ -182,7 +211,10 @@ namespace CORE
                 mApp.CloseConnection();
             }
         }
-
+        /// <summary>
+        /// Статусная строка о пользователе и его онлайн-статусе 
+        /// </summary>
+        /// <returns></returns>
         public string GetInformation()
         {
             return NameF + " " + NameI + " " + NameO + " " + Online;

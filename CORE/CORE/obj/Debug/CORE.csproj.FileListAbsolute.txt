@@ -3,3 +3,9 @@ E:\Projects\MessagingSystem\CORE\CORE\bin\Debug\CORE.pdb
 E:\Projects\MessagingSystem\CORE\CORE\obj\Debug\CORE.dll
 E:\Projects\MessagingSystem\CORE\CORE\obj\Debug\CORE.pdb
 E:\Projects\MessagingSystem\CORE\CORE\obj\Debug\CORE.csproj.CoreCompileInputs.cache
+E:\GIT\MessagingSystem\CORE\CORE\bin\Debug\CORE.dll
+E:\GIT\MessagingSystem\CORE\CORE\bin\Debug\CORE.pdb
+E:\GIT\MessagingSystem\CORE\CORE\obj\Debug\CORE.csproj.CoreCompileInputs.cache
+E:\GIT\MessagingSystem\CORE\CORE\obj\Debug\CORE.dll
+E:\GIT\MessagingSystem\CORE\CORE\obj\Debug\CORE.pdb
+E:\GIT\MessagingSystem\CORE\CORE\bin\Debug\CORE.xml

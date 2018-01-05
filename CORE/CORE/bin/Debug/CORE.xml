@@ -1,0 +1,323 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CORE</name>
+    </assembly>
+    <members>
+        <member name="T:CORE.App">
+            <summary>
+            Класс для подключения к базе данных приложения MessagingSystem
+            </summary>
+        </member>
+        <member name="P:CORE.App.Connection">
+            <summary>
+            SQL-соединение для базы данных приложения MessagingSystem
+            </summary>
+        </member>
+        <member name="M:CORE.App.#ctor(System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса App. Передает строку подключения к базе данных приложения ConnectionString.
+            </summary>
+            <param name="ConnectionString"></param>
+        </member>
+        <member name="M:CORE.App.CloseConnection">
+            <summary>
+            Закрывает соединение с базой данных приложения MessagingSystem
+            </summary>
+        </member>
+        <member name="M:CORE.App.OpenConnection">
+            <summary>
+            Открывает соединение с базой данных приложения MessagingSystem
+            </summary>
+        </member>
+        <member name="T:CORE.MessageCollection">
+            <summary>
+            Коллекция сообщений, получаемая из базы данных
+            </summary>
+        </member>
+        <member name="F:CORE.MessageCollection.mApp">
+            <summary>
+            Связывает класс и базу данных приложения MessagingSystem
+            </summary>
+        </member>
+        <member name="P:CORE.MessageCollection.Current">
+            <summary>
+            Возвращает текущий элемент коллекции
+            </summary>
+        </member>
+        <member name="M:CORE.MessageCollection.#ctor(CORE.App)">
+            <summary>
+            Инициализирует новый экземпляр класса MessageCollection
+            </summary>
+            <param name="papp"></param>
+        </member>
+        <member name="M:CORE.MessageCollection.Fill(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Определяет переписку между пользователем c идентификатором IdUserSender 
+            и пользователем с идентификатором IdUserRecipient, где NumberMessages - количество последних сообщений в переписке
+            </summary>
+            <param name="IdUserSender"></param>
+            <param name="IdUserRecipient"></param>
+            <param name="NumberMessages"></param>
+        </member>
+        <member name="M:CORE.MessageCollection.MoveNext">
+            <summary>
+            для foreach
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CORE.MessageCollection.Reset">
+            <summary>
+            для foreach
+            </summary>
+        </member>
+        <member name="T:CORE.Message">
+            <summary>
+            Сообщение
+            </summary>
+        </member>
+        <member name="F:CORE.Message.mApp">
+            <summary>
+            Связывает класс и базу данных приложения MessagingSystem
+            </summary>
+        </member>
+        <member name="P:CORE.Message.IdMessage">
+            <summary>
+            Идентификатор сообщения
+            </summary>
+        </member>
+        <member name="P:CORE.Message.Sender">
+            <summary>
+            Пользователь, отправляющий сообщение
+            </summary>
+        </member>
+        <member name="P:CORE.Message.Recipient">
+            <summary>
+            Пользователь, получающий сообщение
+            </summary>
+        </member>
+        <member name="P:CORE.Message.ReceivedText">
+            <summary>
+            Текст полученного сообщения
+            </summary>
+        </member>
+        <member name="P:CORE.Message.DateReceived">
+            <summary>
+            Дата полученного сообщения
+            </summary>
+        </member>
+        <member name="P:CORE.Message.SentText">
+            <summary>
+            Текст отправленного сообщения
+            </summary>
+        </member>
+        <member name="P:CORE.Message.DateSent">
+            <summary>
+            Дата отправленного сообщения
+            </summary>
+        </member>
+        <member name="P:CORE.Message.Text">
+            <summary>
+            Текст сообщения
+            </summary>
+        </member>
+        <member name="P:CORE.Message.Date">
+            <summary>
+            Дата сообщения
+            </summary>
+        </member>
+        <member name="P:CORE.Message.Type">
+            <summary>
+            Тип сообщения
+            </summary>
+        </member>
+        <member name="M:CORE.Message.#ctor(CORE.App,System.Int32)">
+            <summary>
+            Инициализирует новый экземпляр класса Message, существующий в базе данных приложения MessagingSystem
+            </summary>
+            <param name="papp"></param>
+            <param name="idMessage">Идентификатор сообщения</param>
+        </member>
+        <member name="M:CORE.Message.#ctor(CORE.App)">
+            <summary>
+            Инициализирует новый экземпляр класса Message, не существующий в базе данных приложения MessagingSystem
+            </summary>
+            <param name="papp"></param>
+        </member>
+        <member name="M:CORE.Message.Send(System.Int32,System.Int32,System.String)">
+            <summary>
+            Отправляет сообщение c текстом <paramref name="text"/> от пользователя с идентификатором IdSender(Отправляющий) пользователю с идентификатором IdRecipient (Получающий)
+            </summary>
+            <param name="IdSender">Кто отправляет</param>
+            <param name="IdRecipient">Кому отправляет</param>
+            <param name="text">Текст сообщения</param>
+        </member>
+        <member name="M:CORE.Message.Read">
+            <summary>
+            Считывает информацию о сообщении из базы данных приложения MessagingSystem
+            </summary>
+        </member>
+        <member name="T:CORE.TypeMessage">
+            <summary>
+            Определяет тип сообщения
+            </summary>
+        </member>
+        <member name="F:CORE.TypeMessage.Sent">
+            <summary>
+            Отправлено
+            </summary>
+        </member>
+        <member name="F:CORE.TypeMessage.Received">
+            <summary>
+            Получено
+            </summary>
+        </member>
+        <member name="T:CORE.User">
+            <summary>
+            Пользователь
+            </summary>
+        </member>
+        <member name="P:CORE.User.IdUser">
+            <summary>
+            идентификатор пользователя
+            </summary>
+        </member>
+        <member name="P:CORE.User.NameF">
+            <summary>
+            Фамилия
+            </summary>
+        </member>
+        <member name="P:CORE.User.NameI">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="P:CORE.User.NameO">
+            <summary>
+            Отчество
+            </summary>
+        </member>
+        <member name="P:CORE.User.Birthday">
+            <summary>
+            Дата рождения
+            </summary>
+        </member>
+        <member name="P:CORE.User.Phone">
+            <summary>
+            Телефон
+            </summary>
+        </member>
+        <member name="P:CORE.User.DateRegistration">
+            <summary>
+            Дата регистрации
+            </summary>
+        </member>
+        <member name="P:CORE.User.Login">
+            <summary>
+            Логин
+            </summary>
+        </member>
+        <member name="P:CORE.User.Password">
+            <summary>
+            пароль
+            </summary>
+        </member>
+        <member name="P:CORE.User.Online">
+            <summary>
+            Полное описание присутствия пользователя онлайн 
+            </summary>
+        </member>
+        <member name="P:CORE.User.Online2">
+            <summary>
+            Краткое описание присутствия пользователя онлайн
+            </summary>
+        </member>
+        <member name="M:CORE.User.#ctor(CORE.App)">
+            <summary>
+            Инициализирует новый экземпляр класса User, не существующий в базе данных приложения MessagingSystem
+            </summary>
+            <param name="pApp"></param>
+        </member>
+        <member name="M:CORE.User.#ctor(CORE.App,System.Int32)">
+            <summary>
+            Инициализирует новый экземпляр класса User, существующий в базе данных приложения MessagingSystem
+            </summary>
+            <param name="pApp"></param>
+            <param name="idUser"></param>
+        </member>
+        <member name="M:CORE.User.NewUser">
+            <summary>
+            Регистрация пользователя
+            </summary>
+        </member>
+        <member name="M:CORE.User.Read">
+            <summary>
+            Считывает информацию о пользователе из базы данных приложения MessagingSystem
+            </summary>
+        </member>
+        <member name="M:CORE.User.CheckLogin(System.String,System.String)">
+            <summary>
+            Проверяет правильность введенных логина и пароля
+            </summary>
+            <param name="Login"></param>
+            <param name="Password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CORE.User.MakeOnLine">
+            <summary>
+            Обновляет информацию в базе данных о присутствии пользователя онлайн
+            </summary>
+        </member>
+        <member name="M:CORE.User.GetInformation">
+            <summary>
+            Статусная строка о пользователе и его онлайн-статусе 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CORE.UserCollection">
+            <summary>
+            Коллекция пользователей/контактов пользователя. Получаем из базы данных.
+            </summary>
+        </member>
+        <member name="F:CORE.UserCollection.mApp">
+            <summary>
+            Связывает класс и базу данных приложения MessagingSystem
+            </summary>
+        </member>
+        <member name="P:CORE.UserCollection.Current">
+            <summary>
+            Возвращает текущий элемент коллекции
+            </summary>
+        </member>
+        <member name="M:CORE.UserCollection.#ctor(CORE.App)">
+            <summary>
+            Инициализирует новый экземпляр класса UserCollection
+            </summary>
+            <param name="papp"></param>
+        </member>
+        <member name="M:CORE.UserCollection.FillList(CORE.User)">
+            <summary>
+            Определяет список контактов для текущего пользователя.
+            </summary>
+            <param name="curUser"></param>
+        </member>
+        <member name="M:CORE.UserCollection.FillList(CORE.User,System.String)">
+            <summary>
+            Определяет список контактов для текущего пользователя по поиску (ФИО пользователя включает строку SearchString)
+            </summary>
+            <param name="curUser"></param>
+            <param name="SearchString"></param>
+        </member>
+        <member name="M:CORE.UserCollection.MoveNext">
+            <summary>
+            для foreach
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CORE.UserCollection.Reset">
+            <summary>
+            для foreach
+            </summary>
+        </member>
+    </members>
+</doc>
