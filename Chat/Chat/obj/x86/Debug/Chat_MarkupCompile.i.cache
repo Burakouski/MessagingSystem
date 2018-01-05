@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\brkv.INETBSU\Desktop\MessagingSystem\Chat\Chat\obj\x86\Debug\
+E:\GIT\MessagingSystem\Chat\Chat\obj\x86\Debug\
 Chat
 none
 false
 DEBUG;TRACE
-C:\Users\brkv.INETBSU\Desktop\MessagingSystem\Chat\Chat\App.xaml
+E:\GIT\MessagingSystem\Chat\Chat\App.xaml
 7-1432172659
 
-122141825374
-32-673660604
+12-1726181066
+32-1984920201
 Pages\Contacts.xaml;Pages\Registration.xaml;ZExample.xaml;Pages\LoginPage.xaml;Pages\Messages.xaml;Pages\Profile.xaml;Window1.xaml;
 
-True
+False
 

@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Chat</name>
+    </assembly>
+    <members>
+        <member name="T:Chat.Contacts">
+            <summary>
+            Страница контактов
+            </summary>
+            <summary>
+            Contacts
+            </summary>
+        </member>
+        <member name="M:Chat.Contacts.#ctor(CORE.User,Chat.NativeWindow)">
+            <summary>
+            
+            </summary>
+            <param name="I_am"></param>
+            <param name="win"></param>
+        </member>
+        <member name="M:Chat.Contacts.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Chat.Pages.LoginPage">
+            <summary>
+            Interaction logic for LoginPage.xaml
+            </summary>
+            <summary>
+            LoginPage
+            </summary>
+        </member>
+        <member name="M:Chat.Pages.LoginPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Chat.Pages.Messages">
+            <summary>
+            Interaction logic for Messages.xaml
+            </summary>
+            <summary>
+            Messages
+            </summary>
+        </member>
+        <member name="M:Chat.Pages.Messages.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Chat.Pages.Registration">
+            <summary>
+            Логика взаимодействия для Registration.xaml
+            </summary>
+            <summary>
+            Registration
+            </summary>
+        </member>
+        <member name="M:Chat.Pages.Registration.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Chat.Profile">
+            <summary>
+            Interaction logic for Profile.xaml
+            </summary>
+            <summary>
+            Profile
+            </summary>
+        </member>
+        <member name="M:Chat.Profile.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Chat.NativeWindow">
+            <summary>
+            NativeWindow
+            </summary>
+        </member>
+        <member name="M:Chat.NativeWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Chat.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Chat.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Chat.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:Chat.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:Chat.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Chat.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Chat.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Chat.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

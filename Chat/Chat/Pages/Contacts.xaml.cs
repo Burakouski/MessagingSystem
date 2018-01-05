@@ -16,15 +16,18 @@ using System.Data;
 namespace Chat
 {
     /// <summary>
-    /// Interaction logic for Contacts.xaml
+    /// Страница контактов
     /// </summary>
     public partial class Contacts : Page
     {
         CORE.User PresentUser;
         NativeWindow MyWindow;
 
-        public event EventHandler SendMsg_Click;
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="I_am"></param>
+        /// <param name="win"></param>
         public Contacts(CORE.User I_am, NativeWindow win)
         {
             PresentUser = I_am;
@@ -33,6 +36,7 @@ namespace Chat
             MyWindow = win;
             InitializeComponent();
         }
+
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
